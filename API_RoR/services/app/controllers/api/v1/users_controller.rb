@@ -14,25 +14,25 @@ class Api::V1::UsersController < ApplicationController
 	def create
 	   @user = User.new(user_params)
 	   if @user.save
-	    respond_with({'status':'success'})
+	    respond_with({'status'=>'success'})
 	   else
-	    respond_with({'status':'error', 'errors':@user.errors})
+	    respond_with({'status'=>'error', 'errors'=> @user.errors})
 	   end
 	 end
    
   	# PATCH/PUT /users/1.json
   	def update
 	   if @user.update(user_params)
-	    respond_with({'status':'success'})
+	    respond_with({'status'=>'success'})
 	   else
-	    respond_with({'status':'error'})
+	    respond_with({'status'=>'error'})
 	   end
   	end
  
   	# DELETE /users/1.json
   	def destroy
 	   @user.destroy
-	   respond_with({'status':'User deleted'})
+	   respond_with({'status'=>'User deleted'})
   	end
  
   	def user_params
