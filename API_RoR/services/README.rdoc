@@ -1,28 +1,43 @@
-== README
+== Servicio  API - JSON on Ruby on rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Consiste en la creación de un servicio  REST construido con Ruby on Rails, con el fin de manipular las peticiones del protocolo HTTP como: GET, POST, PUT y DELETE.
 
-Things you may want to cover:
+Un servicio el cual permita:
 
-* Ruby version
+* Manejo de usuarios
 
-* System dependencies
+* Registro de peticiones o solicitudes
 
-* Configuration
+* Modificación de perfiles de usuarios.
 
-* Database creation
+* Información de timelines y Dashboard.
 
-* Database initialization
+* Conexión de base de datos SQLite.
 
-* How to run the test suite
+* Documentación del API.
 
-* Services (job queues, cache servers, search engines, etc.)
+*  Busqueda de información y modificación.
 
-* Deployment instructions
+* Instrucciones de despliegue.
 
-* ...
+== API
+
+=== Construcción de modelos:
+
+Se crea un modelo, el cual se encargara de guardar, consultar y actualizar nuestra entidad en la base de datos. Vamos a crear un modelo Usuario, es decir nuestro Servicio Web se encargara de listar, actualizar y crear Usuarios.
+
+* rails generate model User name:string last_name:string phone_number:string
+* rails g model User name:string last_name:string phone_number:string
+
+Esto nos va a crear un modelo y un archivo de migración para crear una tabla en nuestra base de datos llamada User la cual tendrá 3 columnas name donde almacenaremos el nombre, last_name el apellido, phone_number el teléfono.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Luego se debe ejecutar el comando necesario para hacer correr las migraciones en nuestro servicio:
+
+* rake db:migrate
+
+=== Construcción de controladores
+
+Se crea el controlador, este será el encargado de comunicar nuestro proyecto con el cliente externo que desea consumir nuestros datos. Normalmente yo utilizo paths virtuales con el fin de no confundir el Servicio Web con una pagina web que este creada en el mismo proyecto, esto suele suceder en proyectos grandes donde en un mismo proyecto se trabaja una pagina web creada en Rails y un Servicio Web.
+
+* rails g controller Api::V1::Users
