@@ -41,3 +41,24 @@ Luego se debe ejecutar el comando necesario para hacer correr las migraciones en
 Se crea el controlador, este será el encargado de comunicar nuestro proyecto con el cliente externo que desea consumir nuestros datos. Normalmente yo utilizo paths virtuales con el fin de no confundir el Servicio Web con una pagina web que este creada en el mismo proyecto, esto suele suceder en proyectos grandes donde en un mismo proyecto se trabaja una pagina web creada en Rails y un Servicio Web.
 
 * rails g controller Api::V1::Users
+
+== GRAPE
+
+El desarrollo de aplicaciones a tomado un rumbo diferente los ultimos años. En tiempos anteriores las independencias entre las aplicaciones web, escritorio era algo  muy comun verlo en diferentes escenarios.
+Pero en los ultimos años la programación orientada a servicios a venido tomando fuerza, la cual trajo una nueva forma de hacer las cosas; donde, se busca hacer aplicaciones base que solo procese la información suministrada y entregue respuestas a través de  un protocolo de comunicación definido.
+
+Utilizando Rails con la Gema Grape es posible crear APIs REST la cual nos permite crear aplicaciones de un comportamineto similar al mencionado.
+
+Lo primero que debemos hacer es agregar la gema en nuestro Gemfile:
+
+* gem "grape"
+
+=== Estructuración mediante versionamiento
+
+El crecimiento de nuestra aplicación durante la etapa de desarrollo nos obliga a pensar en el versionamiento, lo mismo sucede con las API; pero esta ultima tiene una diferencia significativa dado que no podemos suspender nuestra API antigua justo en el momento en que lanzamos una version más reciente de la misma. Esto dando un tiempo considerable en las actualizaciones necesarias de los sitemas que consumen la API.
+
+Dicho lo anterior nuestro objetivo entonces es poder realizar un correcto versionamiento de los diferentes métodos que tendremos en el API, ejemplo:
+
+* /api/v1/users.json - API version 1
+ 
+* /api/v2/users.json - API version 2
