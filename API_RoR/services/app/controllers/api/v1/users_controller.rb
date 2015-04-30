@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
 	# Ruby On Rails nos permite definir el modo de respuesta, en este caso estamos utilizando solo json,
 	# pero si agregamos un :xml en la sentencia respond_to automáticamente tendremos nuestras respuestas
 	# en formato XML, solo tendríamos que llamar al controlador con un .xml al final (GET /users.xml)
-	respond_to :json
+	respond_to :json, :html
    
   	# GET /users.json
   	def index
