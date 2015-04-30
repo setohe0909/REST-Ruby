@@ -14,6 +14,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# dotenv te permite ocultar datos sensibles como KEYS  de los archivos que subes a heroku o github
+gem 'dotenv'
+# Grape
+gem "grape"
 # responders
 gem 'responders'
 # Use jquery as the JavaScript library
